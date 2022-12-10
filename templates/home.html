@@ -1,3 +1,64 @@
-<h1>
-    Hello World
-</h1>
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Predict-ML APP</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+</head>
+
+<body style="background-color:#CCCCFF;text-align:center ">
+ <div class="login">
+	<h1 style="color:#190033;"> House Price Prediction</h1>
+    <h2 style="color:#190033; text-align:justify">Attribute Information (in order):</h2>
+    <p style="text-align:justify">
+        1. <b>Crime_rate :</b>   Per capita crime rate by area<br>
+        2. <b>Zone :</b>   Proportion of residential land zoned for lots over 25,000 sq.ft.<br>
+        3. <b>Industry :</b>   Proportion of non-retail business acres per town<br>
+        4. <b>CHAS_variable : </b>   Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)<br>
+        5. <b>Nitric_oxides :</b>    Nitric oxides concentration (parts per 10 million)<br>
+        6. <b>Number_of_rooms :</b>    Average number of rooms per dwelling<br>
+        7. <b>Property_age : </b>   Proportion of owner-occupied units built prior to 1940<br>
+        8. <b>Distance </b>:    Weighted distances to five employment centres<br>
+        9. <b>Radial_highways : </b>   Index of accessibility to radial highways<br>
+        10. <b>Property_tax :</b>    Full-value property-tax rate per $10,000<br>
+        11. <b>PT_ratio :</b>  Pupil-teacher ratio by town<br>
+        12. <b >BK :</b>     1000(Bk - 0.63)^2 where Bk is the proportion of blocks by town<br>
+        13. <b >L_status :</b>   % of lower status of the population<br>
+        </p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="CRIM" placeholder="Crime_rate" required="required" /><br>
+    	<input type="text" name="ZN" placeholder="Zone" required="required" /><br>
+        <input type="text" name="INDUS" placeholder="Industry" required="required" /><br>
+        <input type="text" name="CHAS" placeholder="CHAS_variable" required="required" /><br>
+        <input type="text" name="NOX" placeholder="Nitric_oxides" required="required" /><br>
+        <input type="text" name="RM" placeholder="Number_of_rooms" required="required" /><br>
+        <input type="text" name="Age" placeholder="Property_age" required="required" /><br>
+        <input type="text" name="DIS" placeholder="Distance" required="required" /><br>
+        <input type="text" name="RAD" placeholder="Radial_highways" required="required" /><br>
+        <input type="text" name="TAX" placeholder="Property_tax" required="required" /><br>
+        <input type="text" name="PTRATIO" placeholder="PT_ratio" required="required" /><br>
+        <input type="text" name="B" placeholder="BK" required="required" /><br>
+        <input type="text" name="LSTAT" placeholder="L_status" required="required" /><br>
+
+       
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div style="color:#190033;">
+    <h2><b>{{prediction_text}}</b></h2>
+
+</body>
+</html>
